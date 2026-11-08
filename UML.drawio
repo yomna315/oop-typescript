@@ -1,0 +1,55 @@
+<mxfile host="65bd71144e">
+    <diagram id="notes-uml" name="Notes Management UML">
+        <mxGraphModel dx="980" dy="396" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="user" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;align=center;verticalAlign=top;spacing=8;" value="&lt;div style=&quot;font-weight:bold;font-size:16px&quot;&gt;User&lt;/div&gt;&lt;hr/&gt;&lt;div style=&quot;text-align:left&quot;&gt;+ id: number&lt;br/&gt;+ name: string&lt;br/&gt;+ email: string&lt;br/&gt;- password: string&lt;br/&gt;# phone: string&lt;br/&gt;- age: number&lt;/div&gt;&lt;hr/&gt;&lt;div style=&quot;text-align:left&quot;&gt;+ displayInfo(): void&lt;br/&gt;+ addNotebook(notebook: NoteBook): void&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="230" width="270" x="390" y="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="admin" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;align=center;verticalAlign=top;spacing=8;" value="&lt;div style=&quot;font-weight:bold;font-size:16px&quot;&gt;Admin&lt;/div&gt;&lt;hr/&gt;&lt;div style=&quot;text-align:left;color:#666&quot;&gt;Inherits User attributes&lt;/div&gt;&lt;hr/&gt;&lt;div style=&quot;text-align:left&quot;&gt;+ manageNotes(): void&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="130" width="270" x="390" y="370" as="geometry"/>
+                </mxCell>
+                <mxCell id="notebook" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;align=center;verticalAlign=top;spacing=8;" value="&lt;div style=&quot;font-weight:bold;font-size:16px&quot;&gt;NoteBook&lt;/div&gt;&lt;hr/&gt;&lt;div style=&quot;text-align:left&quot;&gt;- notes: Note[]&lt;/div&gt;&lt;hr/&gt;&lt;div style=&quot;text-align:left&quot;&gt;+ addNote(note: Note): void&lt;br/&gt;+ removeNote(noteId: number): void&lt;br/&gt;+ getAllNotes(): Note[]&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="180" width="300" x="40" y="390" as="geometry"/>
+                </mxCell>
+                <mxCell id="note" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;align=center;verticalAlign=top;spacing=8;" value="&lt;div style=&quot;font-weight:bold;font-size:16px&quot;&gt;Note&lt;/div&gt;&lt;hr/&gt;&lt;div style=&quot;text-align:left&quot;&gt;+ id: number&lt;br/&gt;+ title: string&lt;br/&gt;+ content: string&lt;br/&gt;+ userId: User&lt;/div&gt;&lt;hr/&gt;&lt;div style=&quot;text-align:left&quot;&gt;+ preview(): string&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="170" width="300" x="780" y="390" as="geometry"/>
+                </mxCell>
+                <mxCell id="e-inherit" edge="1" parent="1" source="admin" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;strokeWidth=2;strokeColor=#38761d;fontSize=12;labelBackgroundColor=#ffffff;" target="user" value="Inheritance">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="525" y="330"/>
+                            <mxPoint x="525" y="300"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e-aggregation" edge="1" parent="1" source="user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=diamond;startFill=0;endArrow=none;strokeWidth=2;strokeColor=#9673a6;fontSize=12;labelBackgroundColor=#ffffff;" target="notebook" value="Aggregation  1 : 0..*">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="250" y="155"/>
+                            <mxPoint x="190" y="155"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e-composition" edge="1" parent="1" source="notebook" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=diamond;startFill=1;endArrow=none;strokeWidth=2;strokeColor=#b85450;fontSize=12;labelBackgroundColor=#ffffff;" target="note" value="Composition  1 : 0..*">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="690" y="540"/>
+                            <mxPoint x="690" y="540"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e-association" edge="1" parent="1" source="user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;endArrow=none;strokeWidth=2;strokeColor=#0b5394;fontSize=12;labelBackgroundColor=#ffffff;" target="note" value="Association  1 : 0..*">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="920" y="155"/>
+                            <mxPoint x="1110" y="155"/>
+                            <mxPoint x="1110" y="475"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
